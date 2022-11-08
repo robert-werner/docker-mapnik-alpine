@@ -4,7 +4,6 @@ zlib
 zlib-dev
 icu
 icu-dev
-icu-libs
 icu-data-full
 harfbuzz
 harfbuzz-dev
@@ -14,5 +13,4 @@ python3
 sqlite 
 sqlite-dev
 postgresql 
-postgresql-libs 
 postgresql-dev
