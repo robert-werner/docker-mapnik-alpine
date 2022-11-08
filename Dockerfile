@@ -9,7 +9,7 @@ ARG WITH_SQLITE
 ARG WITH_CAIRO
 
 RUN apk update
-RUN apk add --no-cache alpine-sdk bash
+RUN apk add --no-cache git patch g++ python3 make bash
 RUN mkdir /opt/mapnik
 RUN mkdir src
 WORKDIR src
