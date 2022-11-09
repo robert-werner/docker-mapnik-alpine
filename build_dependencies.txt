@@ -10,7 +10,3 @@ harfbuzz-dev
 boost
 boost-dev
 python3
-sqlite 
-sqlite-dev
-postgresql 
-postgresql-dev

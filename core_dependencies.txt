@@ -1,0 +1,11 @@
+freetype
+freetype-dev
+zlib
+zlib-dev
+icu
+icu-dev
+icu-data-full
+harfbuzz
+harfbuzz-dev
+boost
+boost-dev
