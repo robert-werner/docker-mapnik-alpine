@@ -1,4 +1,4 @@
-FROM bash:alpine3.16
+FROM httpd:2-alpine3.17
 
 ARG WITH_JPEG
 ARG WITH_PROJ
@@ -8,7 +8,7 @@ ARG WITH_GDAL
 ARG WITH_SQLITE
 ARG WITH_CAIRO
 
-RUN apk add --no-cache g++ make python3 git patch
+RUN apk add --no-cache g++ make python3 git patch bash
 
 RUN git clone https://github.com/mapnik/mapnik.git
 WORKDIR mapnik
@@ -20,5 +20,6 @@ RUN patch SConstruct SConstruct_fvisibility.patch
 RUN bash optional_dependencies.sh
 
 RUN PYTHON=python3 ./configure
-RUN PYTHON=python3 QUIET=yes HEAVY_JOBS=8 JOBS=8 make
+RUN PYTHON=python3 QUIET=yes HEAVY_JOBS=$(($(nproc)-2)) JOBS=$(($(nproc)-2)) make
 RUN PYTHON=python3 make install
+WORKDIR /
